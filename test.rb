@@ -1,4 +1,5 @@
-require "test/unit"
+gem "test-unit"
+require 'test/unit'
 
 class RandomFailingTest < Test::Unit::TestCase
   def test_01
