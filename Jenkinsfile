@@ -1,3 +1,10 @@
+def runInBash(command) {
+    sh """#!/bin/bash -l
+        set -x
+        ${command}
+    """
+}
+
 node {
       withEnv(['JIRA_SITE=jira-server']) {
           stage('Checkout') {
@@ -6,9 +13,7 @@ node {
           }
 
           stage('Tests') {
-          bash '''#!/bin/bash
-                  ruby -v
-               '''
+              runInBash('ruby -v')
           }
       }
 }
