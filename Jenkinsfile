@@ -6,14 +6,19 @@ def runInBash(command) {
 }
 
 node {
-      withEnv(['JIRA_SITE=jira-server']) {
-          stage('Checkout') {
-              deleteDir()
-              checkout scm
-          }
+    withEnv(['JIRA_SITE=jira-server']) {
+        try {
+            stage('Checkout') {
+                deleteDir()
+                checkout scm
+            }
 
-          stage('Tests') {
-              runInBash('ruby test.rb')
-          }
-      }
+            stage('Tests') {
+                runInBash('ruby test.rb')
+            }
+        } finally {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
+    }
 }
