@@ -1,7 +1,7 @@
 gem "test-unit"
 require 'test/unit'
 
-class RandomFailingTest < Test::Unit::TestCase
+class RandomlyFailingTest < Test::Unit::TestCase
   def test_01
     probably_fail
   end
