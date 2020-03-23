@@ -1,5 +1,5 @@
 def rvmSh(String cmd) {
-    def sourceRvm = 'source ~/.rvm/scripts/rvm'
+    def sourceRvm = 'source /etc/profile.d/rvm.sh'
     def useRuby = "rvm use ruby-2.6.5"
     sh "${sourceRvm}; ${useRuby}; $cmd"
 }
