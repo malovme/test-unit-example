@@ -13,7 +13,7 @@ node {
           }
 
           stage('Tests') {
-              runInBash('ruby -v')
+              runInBash('ruby test.rb')
           }
       }
 }
