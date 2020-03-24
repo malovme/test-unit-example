@@ -12,4 +12,4 @@ DEPENDENCIES
   test-unit (= 3.0.7)
 
 BUNDLED WITH
-   1.14.6
+   1.17.3

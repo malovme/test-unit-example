@@ -17,7 +17,6 @@ node {
                 runInBash('ruby test.rb')
             }
         } finally {
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
             junit 'build/reports/**/*.xml'
         }
     }

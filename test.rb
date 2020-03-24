@@ -1,5 +1,6 @@
 gem "test-unit"
 require 'test/unit'
+require 'ci/reporter/rake/test_unit'
 
 class RandomlyFailingTest < Test::Unit::TestCase
   def test_01
