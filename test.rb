@@ -1,5 +1,6 @@
 gem "test-unit"
 require 'test/unit'
+require 'test/unit/runner/junitxml'
 
 class RandomlyFailingTest < Test::Unit::TestCase
   def test_01

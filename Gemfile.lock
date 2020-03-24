@@ -4,12 +4,15 @@ GEM
     power_assert (1.1.7)
     test-unit (3.0.7)
       power_assert
+    test-unit-runner-junitxml (0.1.1)
+      test-unit
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   test-unit (= 3.0.7)
+  test-unit-runner-junitxml
 
 BUNDLED WITH
    1.17.3

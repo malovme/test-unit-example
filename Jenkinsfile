@@ -13,8 +13,12 @@ node {
                 checkout scm
             }
 
-            stage('Tests') {
-                runInBash('ruby test.rb')
+            stage('Bundle install') {
+                runInBash('bundle install')
+            }
+
+            stage('Tests')
+                runInBash('ruby test.rb --runner=junitxml --junitxml-output-file=result.xml')
             }
         } finally {
             junit 'build/reports/**/*.xml'
