@@ -17,7 +17,7 @@ node {
                 runInBash('bundle install')
             }
 
-            stage('Tests')
+            stage('Tests') {
                 runInBash('ruby test.rb --runner=junitxml --junitxml-output-file=result.xml')
             }
         } finally {
