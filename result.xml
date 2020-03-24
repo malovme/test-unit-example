@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite name="RandomlyFailingTest"
+             tests="10"
+             errors="0"
+             failures="1"
+             skipped="0"
+             time="0.001059">
+    <testcase classname="RandomlyFailingTest"
+              name="test_01(RandomlyFailingTest)"
+              time="0.000238"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_02(RandomlyFailingTest)"
+              time="5.2e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_03(RandomlyFailingTest)"
+              time="0.000447"
+              assertions="1">
+      <failure message="Test failed.">
+Failure:
+test_03(RandomlyFailingTest)
+    [test.rb:48:in `probably_fail&#39;
+     test.rb:15:in `test_03&#39;]:
+Test failed.
+      </failure>
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_04(RandomlyFailingTest)"
+              time="3.4e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_05(RandomlyFailingTest)"
+              time="2.7e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_06(RandomlyFailingTest)"
+              time="4.0e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_07(RandomlyFailingTest)"
+              time="2.5e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_08(RandomlyFailingTest)"
+              time="2.4e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_09(RandomlyFailingTest)"
+              time="2.4e-05"
+              assertions="1">
+    </testcase>
+    <testcase classname="RandomlyFailingTest"
+              name="test_10(RandomlyFailingTest)"
+              time="2.4e-05"
+              assertions="1">
+    </testcase>
+  </testsuite>
+</testsuites>

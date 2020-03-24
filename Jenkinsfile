@@ -21,7 +21,7 @@ node {
                 runInBash('ruby test.rb --runner=junitxml --junitxml-output-file=result.xml')
             }
         } finally {
-            junit 'build/reports/**/*.xml'
+            junit 'result.xml'
         }
     }
 }
