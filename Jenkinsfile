@@ -30,10 +30,11 @@ node {
         try {
             stage('Tests') {
                 runInBash('ruby test.rb --runner=junitxml --junitxml-output-file=result.xml')
-                junit 'result.xml'
             }
         } catch(e) {
             currentBuild.result = 'FAILURE'
+        } finally {
+            junit 'result.xml'
         }
 
         stage('Pesterbot') {
