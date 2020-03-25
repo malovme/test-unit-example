@@ -41,8 +41,11 @@ node {
             def failedTests = getFailedTestsFrom(currentBuild).collect { failedTest ->
                     failedTest.testName.split("\\(")[0]
             }
-            println failedTests.dump()
-            println currentBuild.rawBuild.number
+            if (failedTests) { # collection is false if empty
+                println "${failedTests.join(',')} failed in ${} "
+            }
+
+            println currentBuild.dump()
         }
     }
 }
