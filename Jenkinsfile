@@ -42,10 +42,8 @@ node {
                     failedTest.testName.split("\\(")[0]
             }
             if (failedTests) { // collection is false if empty
-                println "${failedTests.join(',')} failed in ${} "
+                println "${failedTests.join(',')} failed in ${currentBuild.getAbsoluteUrl()}"
             }
-
-            println currentBuild.dump()
         }
     }
 }
