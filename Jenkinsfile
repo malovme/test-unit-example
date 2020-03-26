@@ -46,7 +46,7 @@ node {
                 failedTests.each { failedTest ->
                     def issues = jiraJqlSearch(
                                     //fields: ['key', 'summary'],
-                                    jql: "PROJECT = CL AND SUMMARY ~ '${failedTest}'"
+                                    jql: "PROJECT = CL AND SUMMARY ~ 'Test ${failedTest} is failing"'"
                                  ).data.issues
                     def issueKeys = issues.collect { issue -> issue.key }
                     if (issueKeys) {
@@ -59,7 +59,7 @@ node {
                         // create new ticket
                         def issue = [fields: [
                                      project: [key: 'CL'],
-                                     summary: 'New JIRA Created from Jenkins.',
+                                     summary: "Test ${failedTest} is failing",
                                      description: "Test failed in ${env.BUILD_URL}",
                                      issuetype: [id: '10004']]]
                         jiraNewIssue issue: issue
