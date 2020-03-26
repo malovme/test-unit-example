@@ -46,7 +46,7 @@ node {
                 failedTests.each { failedTest ->
                     def issues = jiraJqlSearch(
                                     //fields: ['key', 'summary'],
-                                    jql: "PROJECT = CL AND SUMMARY ~ 'Test ${failedTest} is failing"'"
+                                    jql: "PROJECT = CL AND SUMMARY ~ 'Test ${failedTest} is failing'"
                                  ).data.issues
                     def issueKeys = issues.collect { issue -> issue.key }
                     if (issueKeys) {
