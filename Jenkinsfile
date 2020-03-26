@@ -42,7 +42,29 @@ node {
                     failedTest.testName.split("\\(")[0]
             }
             if (failedTests) { // collection is false if empty
-                println "${failedTests.join(',')} failed in ${currentBuild.getAbsoluteUrl()}"
+                println "${failedTests.join(', ')} failed in ${currentBuild.getAbsoluteUrl()}"
+                failedTests.each { failedTest ->
+                    def issues = jiraJqlSearch(
+                                    //fields: ['key', 'summary'],
+                                    jql: "PROJECT = CL AND SUMMARY ~ '${failedTest}'"
+                                 ).data.issues
+                    def issueKeys = issues.collect { issue -> issue.key }
+                    if (issueKeys) {
+                        // make comment
+                        issueKeys.each { issueKey ->
+                            def comment = [ body: "Test failed in ${env.BUILD_URL}" ]
+                            jiraAddComment idOrKey: issueKey, input: comment
+                        }
+                    } else {
+                        // create new ticket
+                        def issue = [fields: [
+                                     project: [key: 'CL'],
+                                     summary: 'New JIRA Created from Jenkins.',
+                                     description: "Test failed in ${env.BUILD_URL}",
+                                     issuetype: [id: '10004']]]
+                        jiraNewIssue issue: issue
+                    }
+                }
             }
         }
     }
